@@ -2,6 +2,7 @@
 const express = require('express');
 const bookmarksRouter = express.Router();
 const { bookmarks } = require('../store');
+const bodyParser = express.json();
 const uuid = require('uuid/v4');
 
 
@@ -10,7 +11,23 @@ bookmarksRouter
   .get((req, res) => {
     res.json(bookmarks);
   })
-  .post((req, res) => {});
+  .post(bodyParser, (req, res) => {
+    const { title, url, description, rating } = req.body;
+    if (!title || !url || !description || !rating) {
+      res.status(400).json({ error: "You need to include all fields" });
+    } 
+    if(!url.startsWith('https://')) {
+      res.status(400).json({ error: "You need to inculde valid 'https' protocal" })
+    }
+    bookmarks.push({
+      id: uuid(),
+      title,
+      url,
+      description,
+      rating: Number(rating)
+    })
+    res.json(bookmarks)
+  });
 
 bookmarksRouter
   .route('/:id')
