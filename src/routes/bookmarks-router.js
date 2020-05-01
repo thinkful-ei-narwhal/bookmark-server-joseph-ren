@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const bookmarksRouter = express.Router();
+const uuid = require('uuid/v4');
 
 bookmarksRouter
   .route('/')
