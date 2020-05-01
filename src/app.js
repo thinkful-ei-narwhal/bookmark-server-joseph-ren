@@ -4,7 +4,6 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
-const uuid = require('uuid/v4');
 
 const app = express();
 const { NODE_ENV } = require('./config');

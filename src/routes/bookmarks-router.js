@@ -18,7 +18,7 @@ bookmarksRouter
     if (!url.startsWith('https://')) {
       res
         .status(400)
-        .json({ error: "You need to inculde valid 'https' protocal" });
+        .json({ error: "You need to inculde valid 'https' protocol" });
     }
     bookmarks.push({
       id: uuid(),
