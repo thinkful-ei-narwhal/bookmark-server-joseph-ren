@@ -1,12 +1,13 @@
 'use strict';
 const express = require('express');
 const bookmarksRouter = express.Router();
+const store = require('../store');
 const uuid = require('uuid/v4');
 
 bookmarksRouter
   .route('/')
   .get((req, res) => {
-    res.send('Routing working from');
+    res.json(store);
   })
   .post((req, res) => {});
 
