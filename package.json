@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "12.16.1"
+  },
   "scripts": {
     "test": "nyc mocha --require test/setup.js",
     "start": "node src/server.js",
